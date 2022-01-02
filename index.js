@@ -7,4 +7,4 @@ import chooseEnemyMonster from './libs/helper.js';
 console.log(json_emonsters[0])
 
 const pos = chooseEnemyMonster(1,json_emonsters);
-console.log(pos);
+console.log('pos', pos);
