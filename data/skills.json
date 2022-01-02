@@ -1,0 +1,1236 @@
+[
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          2.37
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e02",
+    "id": 1,
+    "name": "Blazing Fireball",
+    "type": "active",
+    "element": "Fire",
+    "level": 0,
+    "description": "Launches a fireball at the opponent in front, dealing 237% physical damage to the opponent",
+    "createdAt": "2021-12-29T05:18:43.946Z",
+    "updatedAt": "2021-12-29T05:18:43.946Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          1.35
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0.02
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e03",
+    "id": 2,
+    "name": "Martian Stones",
+    "type": "active",
+    "element": "Fire",
+    "level": 0,
+    "description": "Attacks opponent's front row, dealing 135% physical damage and burning effect for 3 turns, burn effect burns 2% of enemy's hp each turn.",
+    "createdAt": "2021-12-29T05:18:43.946Z",
+    "updatedAt": "2021-12-29T05:18:43.946Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          1.5
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e04",
+    "id": 3,
+    "name": "Inferno",
+    "type": "active",
+    "element": "Fire",
+    "level": 0,
+    "description": "Use elemental breath to summon hellfires that appear at your opponent's feet, dealing 150% magic damage and reducing your opponent's SPD by 10% for the next turn.",
+    "createdAt": "2021-12-29T05:18:43.946Z",
+    "updatedAt": "2021-12-29T05:18:43.946Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          0.8
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0.25
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e05",
+    "id": 4,
+    "name": "Water Strike",
+    "type": "active",
+    "element": "Water",
+    "level": 0,
+    "description": "Throws a pillar of water at the opponent, dealing 80% Magic Power, and also healing 1 member of our army for 25% hp",
+    "createdAt": "2021-12-29T05:18:43.946Z",
+    "updatedAt": "2021-12-29T05:18:43.946Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0.1
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0.25
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e06",
+    "id": 5,
+    "name": "All rise",
+    "type": "active",
+    "element": "Water",
+    "level": 0,
+    "description": "Increases rage for all our factions by 40 and heals all members for 10% of the buffed champion's HP",
+    "createdAt": "2021-12-29T05:18:43.946Z",
+    "updatedAt": "2021-12-29T05:18:43.946Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          1.05
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e07",
+    "id": 6,
+    "name": "Water God Blessings",
+    "type": "active",
+    "element": "Water",
+    "level": 0,
+    "description": "Create a water-type barrier for 1 ally for our troops, which has the effect of resisting 20% of the buffed champion's hp, and also buffing that champion by 5% atk",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0.75
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e08",
+    "id": 7,
+    "name": "Flash",
+    "type": "active",
+    "element": "Electric",
+    "level": 0,
+    "description": "Rushes to the opponent in front of you, dealing 75% physical damage, and 50% immobilized for the next turn\nControl: tied, unable to act",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          1.8
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e09",
+    "id": 8,
+    "name": "Electric shock",
+    "type": "active",
+    "element": "Electric",
+    "level": 0,
+    "description": "Deals 180% magic damage to the target champion, and the champions next to the target will take 75% AOE damage",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          1.2,
+          0.8,
+          0.5
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e0a",
+    "id": 9,
+    "name": "As quick as lightning",
+    "type": "active",
+    "element": "Electric",
+    "level": 0,
+    "description": "Launches lightning bolts at the target enemy, dealing 3 hits with a thunder effect.\n1st time: 120% physical damage.\n2nd time: 80% physical damage.\n3rd time: 50% physical damage\nHas a 50% chance to shock the opponent and make them unable to act in the next turn",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0.8,
+          0.8,
+          0.5
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e0b",
+    "id": 10,
+    "name": "Meteorite",
+    "type": "active",
+    "element": "Earth",
+    "level": 0,
+    "description": "Triệu gọi 1 thiên thạch rơi từ trên trời xuống gây sát thương cho toàn thể quân địch 3 lần, với sức công phá 80% 50% 50% Sức mạnh công kích",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          1.9
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e0c",
+    "id": 11,
+    "name": "Mountain rain",
+    "type": "active",
+    "element": "Earth",
+    "level": 0,
+    "description": "Gọi một ngọn núi từ trên trời rơi xuống từ trên đầu kẻ địch, sát thương đơn mục tiêu 190% sức mạnh công kích.",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e0d",
+    "id": 12,
+    "name": "Iron armor",
+    "type": "active",
+    "element": "Earth",
+    "level": 0,
+    "description": "Gồng sức chiến đấu, tăng cao khả năng chống chịu, lượt đánh tiếp theo chỉ nhận 1HP sát thương( tồn tại 1 lượt)",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e0e",
+    "id": 13,
+    "name": "Foot tie",
+    "type": "active",
+    "element": "Plant",
+    "level": 0,
+    "description": "gọi dây leo quấn trói chân đối thủ trong 2 lượt, nhận 2 hiệu ứng Parasitic seed",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          0
+        ]
+      },
+      "buff": {
+        "hp": [
+          0.25
+        ],
+        "atk": [
+          0.5
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e0f",
+    "id": 14,
+    "name": "Recover grass",
+    "type": "active",
+    "element": "Earth",
+    "level": 0,
+    "description": "Gọi 1 tinh linh hệ mộc giúp trị liệu 25% HP cho đồng minh yếu máu nhất phe ta, đồng thời trong lượt hành động tiếp theo, đồng minh đó được tăng 5% sức mạnh công kích.",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  },
+  {
+    "ability": {
+      "deal": {
+        "atk": [
+          0
+        ],
+        "matk": [
+          0.3
+        ]
+      },
+      "buff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      },
+      "deBuff": {
+        "hp": [
+          0
+        ],
+        "atk": [
+          0
+        ],
+        "def": [
+          0
+        ],
+        "matk": [
+          0
+        ],
+        "mdef": [
+          0
+        ],
+        "spd": [
+          0
+        ],
+        "shield": [
+          0
+        ],
+        "fury": [
+          0
+        ]
+      }
+    },
+    "effect": {
+      "buff": [
+        0
+      ],
+      "deBuff": [
+        0
+      ]
+    },
+    "_id": "61cbefb35313b1704a9e6e10",
+    "id": 15,
+    "name": "Rose thorn",
+    "type": "active",
+    "element": "Earth",
+    "level": 0,
+    "description": "bắn ra chùm hoa hồng gai lên toàn bộ địch thủ gây sát thương 30% sức mạnh pháp thuật, xác suất 30% trói chân được kẻ địch có SPD cao nhất. Lượt trói trong 3 turn.",
+    "createdAt": "2021-12-29T05:18:43.947Z",
+    "updatedAt": "2021-12-29T05:18:43.947Z",
+    "__v": 0
+  }
+]

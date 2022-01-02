@@ -1,0 +1,119 @@
+[
+  {
+    "ability": {
+      "stats": {
+        "hp": 31.2,
+        "atk": 7.8,
+        "def": 22.1,
+        "matk": 3.9,
+        "mdef": 11.7,
+        "spd": 1.3,
+        "dodge": 1,
+        "crit": 1
+      },
+      "skillIds": {
+        "actives": [
+          5
+        ],
+        "passives": []
+      },
+      "attackType": "physical",
+      "element": "Water",
+      "rank": "SR",
+      "class": "tank"
+    },
+    "inventory": {
+      "weapon": null,
+      "helmet": null,
+      "armor": null,
+      "boots": null,
+      "gem": null
+    },
+    "id": "107",
+    "name": "Windora",
+    "tokenNFT": "",
+    "_id": "61cbe97289929b39a01d69c6",
+    "position": 1,
+    "type": "my"
+  },
+  null,
+  {
+    "ability": {
+      "stats": {
+        "hp": 12,
+        "atk": 21.6,
+        "def": 8.4,
+        "matk": 16.8,
+        "mdef": 9.6,
+        "spd": 3.6,
+        "dodge": 1,
+        "crit": 1
+      },
+      "skillIds": {
+        "actives": [
+          1
+        ],
+        "passives": []
+      },
+      "attackType": "physical",
+      "element": "Fire",
+      "rank": "R",
+      "class": "damage"
+    },
+    "inventory": {
+      "weapon": null,
+      "helmet": null,
+      "armor": null,
+      "boots": null,
+      "gem": null
+    },
+    "id": "401",
+    "name": "Silvyx",
+    "tokenNFT": "",
+    "_id": "61cbe97289929b39a01d69c8",
+    "position": 3,
+    "type": "my"
+  },
+  null,
+  {
+    "ability": {
+      "stats": {
+        "hp": 19.2,
+        "atk": 10.8,
+        "def": 3.6,
+        "matk": 16.8,
+        "mdef": 13.2,
+        "spd": 8.4,
+        "dodge": 1,
+        "crit": 1
+      },
+      "skillIds": {
+        "actives": [
+          8
+        ],
+        "passives": []
+      },
+      "attackType": "physical",
+      "element": "Electric",
+      "rank": "R",
+      "class": "buff"
+    },
+    "inventory": {
+      "weapon": null,
+      "helmet": null,
+      "armor": null,
+      "boots": null,
+      "gem": null
+    },
+    "id": "208",
+    "name": "Floria",
+    "tokenNFT": "",
+    "_id": "61cbe97289929b39a01d69c7",
+    "position": 5,
+    "type": "my"
+  },
+  null,
+  null,
+  null,
+  null
+]

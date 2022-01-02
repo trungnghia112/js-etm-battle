@@ -1,0 +1,116 @@
+[
+  {
+    "ability": {
+      "stats": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "matk": 10,
+        "mdef": 10,
+        "spd": 10,
+        "dodge": 10,
+        "crit": 10
+      },
+      "skillIds": {
+        "actives": [
+          14
+        ]
+      },
+      "attackType": "physical",
+      "element": "Plant",
+      "rank": "R",
+      "class": ""
+    },
+    "inventory": {
+      "weapon": 0,
+      "helmet": 0,
+      "armor": 0,
+      "boots": 0,
+      "gem": 0
+    },
+    "id": "309",
+    "name": "Racoon",
+    "tokenNFT": "",
+    "_id": "61c983fed178e6c00c059f01",
+    "position": 1,
+    "type": "enemy"
+  },
+  {
+    "ability": {
+      "stats": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "matk": 10,
+        "mdef": 10,
+        "spd": 10,
+        "dodge": 10,
+        "crit": 10
+      },
+      "skillIds": {
+        "actives": [
+          4
+        ]
+      },
+      "attackType": "physical",
+      "element": "Water",
+      "rank": "N",
+      "class": ""
+    },
+    "inventory": {
+      "weapon": 0,
+      "helmet": 0,
+      "armor": 0,
+      "boots": 0,
+      "gem": 0
+    },
+    "id": "202",
+    "name": "Floria",
+    "tokenNFT": "",
+    "_id": "61c983fed178e6c00c059ef0",
+    "position": 2,
+    "type": "enemy"
+  },
+  null,
+  null,
+  {
+    "ability": {
+      "stats": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "matk": 10,
+        "mdef": 10,
+        "spd": 10,
+        "dodge": 10,
+        "crit": 10
+      },
+      "skillIds": {
+        "actives": [
+          1
+        ]
+      },
+      "attackType": "physical",
+      "element": "Fire",
+      "rank": "R",
+      "class": ""
+    },
+    "inventory": {
+      "weapon": 0,
+      "helmet": 0,
+      "armor": 0,
+      "boots": 0,
+      "gem": 0
+    },
+    "id": "101",
+    "name": "Windora",
+    "tokenNFT": "",
+    "_id": "61c983fed178e6c00c059ee5",
+    "position": 5,
+    "type": "enemy"
+  },
+  null,
+  null,
+  null,
+  null
+]
