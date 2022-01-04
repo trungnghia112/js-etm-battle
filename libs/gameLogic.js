@@ -167,15 +167,15 @@ function monsterTotalPoint(monster) {
 }
 
 function calculatingDamageNormalAttack(monster, eMonster) {
-  const elementPoint = elementPoint(monster, eMonster);
-  const monsterTotalPoint = monsterTotalPoint(monster);
-  const eMonsterTotalPoint = monsterTotalPoint(eMonster);
+  const ePoint = elementPoint(monster, eMonster);
+  const mTotalPoint = monsterTotalPoint(monster);
+  const eMTotalPoint = monsterTotalPoint(eMonster);
 
   return (
-    ((monster.ability.stats.atk * monsterTotalPoint) /
-      (eMonsterTotalPoint + eMonster.ability.stats.def)) *
+    ((monster.ability.stats.atk * mTotalPoint) /
+      (eMTotalPoint + eMonster.ability.stats.def)) *
     10 *
-    elementPoint
+    ePoint
   );
 }
 

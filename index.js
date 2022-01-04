@@ -3,8 +3,12 @@ let json_emonsters = require('./data/emonsters.json');
 let json_skills = require('./data/skills.json');
 let _ = require('lodash');
 
-import { chooseEnemyMonster } from './libs/gameLogic.js';
-console.log(json_emonsters[0]);
+import {
+  monsterHP,
+  chooseEnemyMonster,
+  calculatingDamageNormalAttack,
+} from './libs/gameLogic.js';
+// console.log(json_emonsters[0]);
 let listMonsters = [];
 let listTurns = [];
 let bfaction = [];
@@ -15,12 +19,13 @@ listMonsters = _.orderBy(
   ['desc', 'desc']
 ).map((v) => {
   return {
-    _id: v._id,
-    type: v.type,
-    id: v.id,
-    name: v.name,
+    // _id: v._id,
+    // type: v.type,
+    // id: v.id,
+    // name: v.name,
+    ...v,
     position: v.position,
-    currenthp: v.ability.stats.hp,
+    currenthp: monsterHP(v),
     hit: [],
     hprecovery: [],
     fury: [0],
@@ -30,18 +35,31 @@ listMonsters = _.orderBy(
   };
 });
 // console.log('listMonsters:', JSON.stringify(listMonsters));
+// console.log('listMonsters:', listMonsters);
 bfaction = [...listMonsters];
 
-listMonsters.forEach((m) => {
+listMonsters.forEach((monsterAttack) => {
   let gameround = '{{uuid4}}';
   const bfaction_monsters = [...bfaction];
   const action_monsters_skills_targets = [];
-  let target = chooseEnemyMonster(
-    m.position,
-    m.type === 'enemy' ? json_monsters : json_emonsters
+  let monsterDefenseList = chooseEnemyMonster(
+    monsterAttack.position,
+    monsterAttack.type === 'enemy' ? json_monsters : json_emonsters
   );
-  console.log('target:', target);
-  action_monsters_skills_targets.push({
-    
-  })
+  monsterDefenseList.forEach((md) => {
+    let monsterDefense = listMonsters.find((lm) => lm._id === md._id);
+    monsterDefense = {
+      ...monsterDefense,
+      hit: [calculatingDamageNormalAttack(monsterAttack, monsterDefense)],
+      fury: [
+        monsterDefense.fury[0] + 25 > 100 ? 0 : monsterDefense.fury[0] + 25,
+      ],
+    };
+
+    action_monsters_skills_targets.push(monsterDefense);
+  });
+  console.log(
+    'action_monsters_skills_targets:',
+    action_monsters_skills_targets
+  );
 });
