@@ -26,7 +26,6 @@ listMonsters = _.orderBy(
     // id: v.id,
     // name: v.name,
     ...v,
-    position: v.position,
     currenthp: monsterHP(v),
     hit: [],
     hprecovery: [],
@@ -48,20 +47,40 @@ listMonsters.forEach((monsterAttack) => {
     monsterAttack.position,
     monsterAttack.type === 'enemy' ? json_monsters : json_emonsters
   );
+
   monsterDefenseList.forEach((md) => {
     let monsterDefense = listMonsters.find((lm) => lm._id === md._id);
+    const damageNormal = calculatingDamageNormalAttack(
+      monsterAttack,
+      monsterDefense
+    );
     monsterDefense = {
       ...monsterDefense,
-      hit: [calculatingDamageNormalAttack(monsterAttack, monsterDefense)],
+      hit: [damageNormal],
       fury: [
         monsterDefense.fury[0] + 25 > 100 ? 0 : monsterDefense.fury[0] + 25,
       ],
+      currenthp:
+        monsterDefense.currenthp - damageNormal > 0
+          ? monsterDefense.currenthp - damageNormal
+          : 0,
     };
 
     action_monsters_skills_targets.push(monsterDefense);
   });
-  console.log(
-    'action_monsters_skills_targets:',
-    action_monsters_skills_targets
-  );
+
+  const monster_with_skills = {
+    _id: monsterAttack._id,
+    type: monsterAttack.type,
+    id: monsterAttack.id,
+    name: monsterAttack.name,
+    skills: [
+      {
+        skill: 0,
+        targets: action_monsters_skills_targets,
+      },
+    ],
+  };
+
+  console.log('monster_with_skills:', monster_with_skills);
 });
