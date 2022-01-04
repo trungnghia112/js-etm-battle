@@ -1,6 +1,7 @@
 let json_monsters = require('./data/monsters.json');
 let json_emonsters = require('./data/emonsters.json');
 let json_skills = require('./data/skills.json');
+let _ = require('lodash');
 
 import { chooseEnemyMonster } from './libs/gameLogic.js';
 import { cube, isNumber } from './libs/utils.js';
