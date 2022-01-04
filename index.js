@@ -2,6 +2,8 @@ let json_monsters = require('./data/monsters.json');
 let json_emonsters = require('./data/emonsters.json');
 let json_skills = require('./data/skills.json');
 let _ = require('lodash');
+const localDb = require('./libs/db.js');
+let db = new localDb.Database();
 
 import {
   monsterHP,
@@ -39,7 +41,7 @@ listMonsters = _.orderBy(
 bfaction = [...listMonsters];
 
 listMonsters.forEach((monsterAttack) => {
-  let gameround = '{{uuid4}}';
+  let gameround = db.makeid();
   const bfaction_monsters = [...bfaction];
   const action_monsters_skills_targets = [];
   let monsterDefenseList = chooseEnemyMonster(
