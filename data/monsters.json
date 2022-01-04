@@ -12,9 +12,7 @@
         "crit": 1
       },
       "skillIds": {
-        "actives": [
-          5
-        ],
+        "actives": [5],
         "passives": []
       },
       "attackType": "physical",
@@ -34,7 +32,8 @@
     "tokenNFT": "",
     "_id": "61cbe97289929b39a01d69c6",
     "position": 1,
-    "type": "my"
+    "type": "my",
+    "totalPoint": 78
   },
   null,
   {
@@ -50,9 +49,7 @@
         "crit": 1
       },
       "skillIds": {
-        "actives": [
-          1
-        ],
+        "actives": [1],
         "passives": []
       },
       "attackType": "physical",
@@ -72,7 +69,8 @@
     "tokenNFT": "",
     "_id": "61cbe97289929b39a01d69c8",
     "position": 3,
-    "type": "my"
+    "type": "my",
+    "totalPoint": 72
   },
   null,
   {
@@ -88,9 +86,7 @@
         "crit": 1
       },
       "skillIds": {
-        "actives": [
-          8
-        ],
+        "actives": [8],
         "passives": []
       },
       "attackType": "physical",
@@ -110,7 +106,8 @@
     "tokenNFT": "",
     "_id": "61cbe97289929b39a01d69c7",
     "position": 5,
-    "type": "my"
+    "type": "my",
+    "totalPoint": 72
   },
   null,
   null,

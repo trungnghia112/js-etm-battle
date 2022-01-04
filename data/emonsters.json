@@ -33,7 +33,8 @@
     "tokenNFT": "",
     "_id": "61c983fed178e6c00c059f01",
     "position": 1,
-    "type": "enemy"
+    "type": "enemy",
+    "totalPoint": 60
   },
   {
     "ability": {
@@ -69,7 +70,8 @@
     "tokenNFT": "",
     "_id": "61c983fed178e6c00c059ef0",
     "position": 2,
-    "type": "enemy"
+    "type": "enemy",
+    "totalPoint": 60
   },
   null,
   null,
@@ -107,7 +109,8 @@
     "tokenNFT": "",
     "_id": "61c983fed178e6c00c059ee5",
     "position": 5,
-    "type": "enemy"
+    "type": "enemy",
+    "totalPoint": 60
   },
   null,
   null,
