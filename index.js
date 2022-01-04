@@ -41,6 +41,10 @@ bfaction = [...listMonsters];
 
 listMonsters.forEach((monsterAttack) => {
   let gameround = db.makeid();
+  let listOrder = listMonsters.map((m) => m._id);
+  listOrder.unshift(monsterAttack._id);
+  listOrder = _.uniq(listOrder);
+
   const bfaction_monsters = [...bfaction];
   const action_monsters_skills_targets = [];
   let monsterDefenseList = chooseEnemyMonster(
@@ -49,7 +53,7 @@ listMonsters.forEach((monsterAttack) => {
   );
 
   monsterDefenseList.forEach((md) => {
-    let monsterDefense = listMonsters.find((lm) => lm._id === md._id);
+    let monsterDefense = listMonsters.find((m) => m._id === md._id);
     const damageNormal = calculatingDamageNormalAttack(
       monsterAttack,
       monsterDefense
@@ -81,6 +85,38 @@ listMonsters.forEach((monsterAttack) => {
       },
     ],
   };
+  const action_monsters = [monster_with_skills];
 
-  console.log('monster_with_skills:', monster_with_skills);
+  let currentMonster = listMonsters.find((m) => m._id === monsterAttack._id);
+  currentMonster = {
+    ...currentMonster,
+    fury: [currentMonster.fury[0] + 25 > 100 ? 0 : currentMonster.fury[0] + 25],
+  };
+  const afaction_monsters = bfaction_monsters.map((m) => {
+    const eM = action_monsters_skills_targets.find((afm) => afm._id === m._id);
+    return currentMonster._id === m._id ? currentMonster : eM ? eM : m;
+  });
+
+  listTurns.push({
+    data: {
+      gameround,
+      listOrder,
+      bfaction: {
+        monsters: bfaction_monsters,
+      },
+      action: {
+        monsters: action_monsters,
+      },
+      afaction: {
+        monsters: afaction_monsters,
+      },
+    },
+  });
+
+  listMonsters = listMonsters.map((m) => {
+    const monster = afaction_monsters.find((afm) => afm._id === m._id);
+    return monster ? monster : m;
+  });
 });
+
+console.log('listTurns:', listTurns);
