@@ -1,6 +1,13 @@
 class Database {
   create(body) {
-    localStorage.setItem(body.gameround, JSON.stringify(body));
+    localStorage.setItem(
+      'etermon-battle-' + body.gameround,
+      JSON.stringify(body)
+    );
+  }
+
+  get(gameround) {
+    return localStorage.getItem('etermon-battle-' + gameround);
   }
 
   makeid(length = 4) {
