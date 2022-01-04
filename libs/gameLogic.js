@@ -179,9 +179,14 @@ function calculatingDamageNormalAttack(monster, eMonster) {
   );
 }
 
+function monsterHP(monster) {
+  return Math.round(monster.ability.stats.hp * 100);
+}
+
 export {
   chooseEnemyMonster,
   elementPoint,
   monsterTotalPoint,
   calculatingDamageNormalAttack,
+  monsterHP,
 };
