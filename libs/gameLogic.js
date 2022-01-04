@@ -166,7 +166,7 @@ function monsterTotalPoint(monster) {
   );
 }
 
-function calculatingDameNormalAttack(monster, eMonster) {
+function calculatingDamageNormalAttack(monster, eMonster) {
   const elementPoint = elementPoint(monster, eMonster);
   const monsterTotalPoint = monsterTotalPoint(monster);
   const eMonsterTotalPoint = monsterTotalPoint(eMonster);
@@ -183,5 +183,5 @@ export {
   chooseEnemyMonster,
   elementPoint,
   monsterTotalPoint,
-  calculatingDameNormalAttack,
+  calculatingDamageNormalAttack,
 };
