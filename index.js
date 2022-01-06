@@ -35,8 +35,7 @@ listMonsters = _.orderBy(
     debuff: [],
   };
 });
-// console.log('listMonsters:', JSON.stringify(listMonsters));
-// console.log('listMonsters:', listMonsters);
+
 bfaction = [...listMonsters];
 
 listMonsters.forEach((monsterAttack) => {
@@ -97,7 +96,7 @@ listMonsters.forEach((monsterAttack) => {
     return currentMonster._id === m._id ? currentMonster : eM ? eM : m;
   });
 
-  listTurns.push({
+  const turn = {
     data: {
       gameround,
       listOrder,
@@ -111,7 +110,9 @@ listMonsters.forEach((monsterAttack) => {
         monsters: afaction_monsters,
       },
     },
-  });
+  };
+  db.create(turn.data);
+  listTurns.push(turn);
 
   listMonsters = listMonsters.map((m) => {
     const monster = afaction_monsters.find((afm) => afm._id === m._id);
