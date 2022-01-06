@@ -127,10 +127,16 @@ function makeTurn() {
 
   round = round + 1;
   const monster = listMonsters.find((v) => v.currenthp > 0);
-  console.log('round:', round);
-  console.log('listTurns:', listTurns);
+  // console.log('round:', round);
+  // console.log('listTurns:', listTurns);
   if (monster && round < 10) {
     makeTurn();
   }
 }
 makeTurn();
+
+listMonsters = listMonsters.filter((v) => v.currenthp > 0);
+const monstersCheck = _.groupBy(listMonsters, 'type');
+console.log('monstersCheck:', monstersCheck);
+const win = monstersCheck.my.length > monstersCheck.enemy.length;
+console.log(win ? 'you win' : 'you lose');
