@@ -1,0 +1,187 @@
+{
+  "status": "success",
+  "results": 1,
+  "data": {
+    "prefab": [],
+    "monsters": [
+      {
+        "ability": {
+          "stats": {
+            "hp": 3,
+            "atk": 6,
+            "def": 1.5,
+            "matk": 4.5,
+            "mdef": 1.5,
+            "spd": 1.5,
+            "dodge": 1,
+            "crit": 1
+          },
+          "skillIds": {
+            "actives": [
+              9
+            ],
+            "passives": []
+          },
+          "attackType": "physical",
+          "element": "Electric",
+          "rank": "SSR",
+          "class": "damage"
+        },
+        "inventory": {
+          "weapon": 0,
+          "helmet": 0,
+          "armor": 0,
+          "boots": 0,
+          "gem": 0
+        },
+        "id": "608",
+        "name": "Oxtacus",
+        "tokenNFT": "",
+        "_id": "61dc0390c56b668b748e9a56",
+        "position": 1,
+        "type": "my",
+        "totalPoint": 18
+      },
+      null,
+      {
+        "ability": {
+          "stats": {
+            "hp": 2.6,
+            "atk": 5.2,
+            "def": 1.3,
+            "matk": 1.3,
+            "mdef": 1.3,
+            "spd": 3.9000000000000004,
+            "dodge": 1,
+            "crit": 1
+          },
+          "skillIds": {
+            "actives": [
+              2
+            ],
+            "passives": []
+          },
+          "attackType": "physical",
+          "element": "Fire",
+          "rank": "SR",
+          "class": "damage"
+        },
+        "inventory": {
+          "weapon": 0,
+          "helmet": 0,
+          "armor": 0,
+          "boots": 0,
+          "gem": 0
+        },
+        "id": "106",
+        "name": "Windora",
+        "tokenNFT": "",
+        "_id": "61dc137135dd3d3954eee6f5",
+        "position": 3,
+        "type": "my",
+        "totalPoint": 15.6
+      },
+      null,
+      {
+        "ability": {
+          "stats": {
+            "hp": 1.3,
+            "atk": 7.8,
+            "def": 1.3,
+            "matk": 1.3,
+            "mdef": 1.3,
+            "spd": 2.6,
+            "dodge": 1,
+            "crit": 1
+          },
+          "skillIds": {
+            "actives": [
+              13
+            ],
+            "passives": []
+          },
+          "attackType": "physical",
+          "element": "Plant",
+          "rank": "SR",
+          "class": "affect"
+        },
+        "inventory": {
+          "weapon": 0,
+          "helmet": 0,
+          "armor": 0,
+          "boots": 0,
+          "gem": 0
+        },
+        "id": "109",
+        "name": "Windora",
+        "tokenNFT": "",
+        "_id": "61dc03b36b68ec4950df69fb",
+        "position": 5,
+        "type": "my",
+        "totalPoint": 15.600000000000001
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "eMonsters": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ability": {
+          "stats": {
+            "hp": 2,
+            "atk": 2,
+            "def": 2,
+            "matk": 2,
+            "mdef": 2,
+            "spd": 2,
+            "dodge": 2,
+            "crit": 2
+          },
+          "skillIds": {
+            "actives": [
+              1
+            ]
+          },
+          "attackType": "physical",
+          "element": "Fire",
+          "rank": "R",
+          "class": ""
+        },
+        "inventory": {
+          "weapon": 0,
+          "helmet": 0,
+          "armor": 0,
+          "boots": 0,
+          "gem": 0
+        },
+        "id": "306",
+        "name": "Racoon",
+        "tokenNFT": "",
+        "_id": "61dc1204356ee644996cbc73",
+        "position": 5,
+        "type": "enemy",
+        "totalPoint": 12
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "battle": {
+      "userId": "61d80c5803fc3e3db83dc9ec",
+      "mapId": "61dc185347d61035ea5624c3",
+      "areaId": "61d80de2bb4988422d736d06",
+      "stage": "2",
+      "teamId": "61dcf15ef496227c99f0fd7a",
+      "_id": "61dcf3fe615708f60a7cf3c7",
+      "createdAt": "2022-01-11T03:05:34.055Z",
+      "updatedAt": "2022-01-11T03:05:34.055Z",
+      "__v": 0
+    }
+  }
+}
