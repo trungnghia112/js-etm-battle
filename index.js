@@ -174,6 +174,6 @@ async function makeTurn() {
 }
 async function start() {
   await makeTurn();
+  console.log(monster_count > eMonster_count ? 'you win' : 'you lose');
 }
 start();
-console.log(monster_count > eMonster_count ? 'you win' : 'you lose');
