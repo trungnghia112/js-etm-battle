@@ -67,25 +67,29 @@ async function makeTurn() {
 
     monsterDefenseList.forEach((md) => {
       let monsterDefense = listMonsters.find((m) => m._id === md._id);
-      let damageNormal = calculatingDamageNormalAttack(
-        monsterAttack,
-        monsterDefense
-      );
-      damageNormal = Math.round(damageNormal); // round damage
-      monsterDefense = {
-        ...monsterDefense,
-        hit: [damageNormal],
-        fury: [
-          monsterDefense.fury[0] + 25 > 100 ? 0 : monsterDefense.fury[0] + 25,
-        ],
-        currenthp:
-          monsterDefense.currenthp - damageNormal > 0
-            ? monsterDefense.currenthp - damageNormal
-            : 0,
-      };
-
-      action_monsters_skills_targets.push(monsterDefense);
+      if (monsterDefense.currenthp > 0) {
+        let damageNormal = calculatingDamageNormalAttack(
+          monsterAttack,
+          monsterDefense
+        );
+        damageNormal = Math.round(damageNormal); // round damage
+        monsterDefense = {
+          ...monsterDefense,
+          hit: [damageNormal],
+          fury: [
+            monsterDefense.fury[0] + 25 > 100 ? 0 : monsterDefense.fury[0] + 25,
+          ],
+          currenthp:
+            monsterDefense.currenthp - damageNormal > 0
+              ? monsterDefense.currenthp - damageNormal
+              : 0,
+        };
+        action_monsters_skills_targets.push(monsterDefense);
+      }
     });
+    if (action_monsters_skills_targets.length === 0) {
+      return;
+    }
 
     const monster_with_skills = {
       _id: monsterAttack._id,
