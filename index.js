@@ -9,6 +9,9 @@ let json_emonsters = dataJson.eMonsters;
 let _ = require('lodash');
 const localDb = require('./libs/db.js');
 let db = new localDb.Database();
+function genarateGameRound() {
+  return db.makeid();
+}
 
 import {
   monsterHP,
@@ -46,10 +49,11 @@ listMonsters = _.orderBy(
 
 async function makeTurn() {
   let listTurns = [];
-  let bfaction = [...listMonsters];
-
+  let turnIndex = 0;
   for (const monsterAttack of listMonsters) {
-    let gameround = db.makeid();
+    console.log('-------', `round-${round} turn-${turnIndex}`, '-------');
+    let bfaction = [...listMonsters];
+    let gameround = genarateGameRound();
     let listOrder = listMonsters.map((m) => m._id);
     listOrder.unshift(monsterAttack._id);
     listOrder = _.uniq(listOrder);
@@ -63,10 +67,11 @@ async function makeTurn() {
 
     monsterDefenseList.forEach((md) => {
       let monsterDefense = listMonsters.find((m) => m._id === md._id);
-      const damageNormal = calculatingDamageNormalAttack(
+      let damageNormal = calculatingDamageNormalAttack(
         monsterAttack,
         monsterDefense
       );
+      damageNormal = Math.round(damageNormal); // round damage
       monsterDefense = {
         ...monsterDefense,
         hit: [damageNormal],
@@ -110,7 +115,14 @@ async function makeTurn() {
       const eM = action_monsters_skills_targets.find(
         (afm) => afm._id === m._id
       );
-      return currentMonster._id === m._id ? currentMonster : eM ? eM : m;
+      return currentMonster._id === m._id
+        ? currentMonster
+        : eM
+        ? {
+            ...eM,
+            hit: [0], // restore hit after hitted
+          }
+        : m;
     });
     // console.log('afaction_monsters:', afaction_monsters);
 
@@ -144,16 +156,26 @@ async function makeTurn() {
       },
     });
     response = await response.json();
-    console.log(round, 'response:', response);
+    // console.log(round, 'response:', response);
 
     listTurns.push(turn);
 
     listMonsters = listMonsters.map((m) => {
       const monster = afaction_monsters.find((afm) => afm._id === m._id);
-      return monster ? monster : m;
+      return monster ? { ...monster } : { ...m };
     });
+
+    console.log('bfaction_monsters:', bfaction_monsters);
+    console.log('action_monsters:', action_monsters);
+    console.log('afaction_monsters:', afaction_monsters);
+
+    // console.log('listMonsters:', listMonsters);
+
+    turnIndex = turnIndex + 1;
   }
 
+  // reset turn turnIndex
+  turnIndex = 0;
   round = round + 1;
   // const monster = listMonsters.find((v) => v.currenthp > 0);
 
