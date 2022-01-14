@@ -44,11 +44,11 @@ listMonsters = _.orderBy(
 });
 // console.log('listMonsters:', listMonsters);
 
-function makeTurn() {
+async function makeTurn() {
   let listTurns = [];
   let bfaction = [...listMonsters];
 
-  listMonsters.forEach((monsterAttack) => {
+  for (const monsterAttack of listMonsters) {
     let gameround = db.makeid();
     let listOrder = listMonsters.map((m) => m._id);
     listOrder.unshift(monsterAttack._id);
@@ -130,14 +130,29 @@ function makeTurn() {
       },
     };
     // console.log('turn:', turn);
-    // db.create(turn.data);
+    // await db.create(turn.data);
+
+    let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: 'new_title',
+        body: 'new_body',
+        userId: 'userid',
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    response = await response.json();
+    console.log(round, 'response:', response);
+
     listTurns.push(turn);
 
     listMonsters = listMonsters.map((m) => {
       const monster = afaction_monsters.find((afm) => afm._id === m._id);
       return monster ? monster : m;
     });
-  });
+  }
 
   round = round + 1;
   // const monster = listMonsters.find((v) => v.currenthp > 0);
@@ -154,9 +169,11 @@ function makeTurn() {
   // console.log('-------------------');
 
   if (round < 10 && monster_count > 0 && eMonster_count > 0) {
-    makeTurn();
+    await makeTurn();
   }
 }
-makeTurn();
-
+async function start() {
+  await makeTurn();
+}
+start();
 console.log(monster_count > eMonster_count ? 'you win' : 'you lose');

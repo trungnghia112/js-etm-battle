@@ -1,9 +1,15 @@
 class Database {
   create(body) {
-    localStorage.setItem(
-      'etermon-battle-' + body.gameround,
-      JSON.stringify(body)
-    );
+    return new Promise((resolve, reject) => {
+      setTimeout(
+        resolve,
+        100,
+        localStorage.setItem(
+          'etermon-battle-' + body.gameround,
+          JSON.stringify(body)
+        )
+      );
+    });
   }
 
   get(gameround) {
