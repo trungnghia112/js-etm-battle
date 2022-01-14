@@ -3,8 +3,8 @@
 // let json_skills = require('./data/skills.json');
 
 const dataJson = require('./data/jsonviewer.json');
-let json_monsters = dataJson.data.monsters;
-let json_emonsters = dataJson.data.eMonsters;
+let json_monsters = dataJson.monsters;
+let json_emonsters = dataJson.eMonsters;
 
 let _ = require('lodash');
 const localDb = require('./libs/db.js');
