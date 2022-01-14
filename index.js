@@ -3,8 +3,8 @@
 // let json_skills = require('./data/skills.json');
 
 const dataJson = require('./data/jsonviewer.json');
-let json_monsters = dataJson.monsters;
-let json_emonsters = dataJson.eMonsters;
+let myMonsters = dataJson.data.monsters;
+let enemyMonsters = dataJson.data.eMonsters;
 
 let _ = require('lodash');
 const localDb = require('./libs/db.js');
@@ -26,7 +26,7 @@ let monster_count = 0;
 let eMonster_count = 0;
 
 listMonsters = _.orderBy(
-  _.compact([...json_monsters, ...json_emonsters]),
+  _.compact([...myMonsters, ...enemyMonsters]),
   ['ability.stats.spd', 'totalPoint'],
   ['desc', 'desc']
 ).map((v) => {
@@ -62,12 +62,12 @@ async function makeTurn() {
     const action_monsters_skills_targets = [];
     let monsterDefenseList = chooseEnemyMonster(
       monsterAttack.position,
-      monsterAttack.type === 'enemy' ? json_monsters : json_emonsters
+      monsterAttack.type === 'enemy' ? myMonsters : enemyMonsters
     );
 
     monsterDefenseList.forEach((md) => {
       let monsterDefense = listMonsters.find((m) => m._id === md._id);
-      if (monsterDefense.currenthp > 0) {
+      if (monsterDefense && monsterDefense.currenthp > 0) {
         let damageNormal = calculatingDamageNormalAttack(
           monsterAttack,
           monsterDefense
@@ -124,7 +124,7 @@ async function makeTurn() {
         : eM
         ? {
             ...eM,
-            hit: [0], // restore hit after hitted
+            hit: [], // restore hit after hitted
           }
         : m;
     });

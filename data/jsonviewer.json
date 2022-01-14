@@ -1,203 +1,173 @@
 {
-  "_id": "61dfc66d7d34abbac7f403f8",
-  "userId": "61dba1dc5abb171aea12c113",
-  "mapId": "61dd5c04d51e9f32c2f73f7f",
-  "areaId": "61de7f5b37cfefc337a1145a",
-  "stage": "2",
-  "teamId": "61dd5ed56b2bc2ea351a0f2f",
-  "monsters": [
-    {
-      "ability": {
-        "stats": {
-          "hp": 2.4,
-          "atk": 2.4,
-          "def": 1.2,
-          "matk": 4.8,
-          "mdef": 1.2,
-          "spd": 2.4,
-          "dodge": 1,
-          "crit": 1
+  "status": true,
+  "data": {
+    "userId": "61dba1dc5abb171aea12c113",
+    "level": 2,
+    "mapId": "61dd5c04d51e9f32c2f73f7f",
+    "areaId": "61e0e32f314ce0d6e32992ae",
+    "stage": "2",
+    "teamId": "61e16a77858afca57a8b4934",
+    "monsters": [
+      {
+        "ability": {
+          "stats": {
+            "hp": 1,
+            "atk": 1,
+            "def": 1,
+            "matk": 1,
+            "mdef": 1,
+            "spd": 1,
+            "dodge": 1,
+            "crit": 1
+          },
+          "skillIds": {
+            "actives": [12],
+            "passives": []
+          },
+          "attackType": "physical",
+          "element": "Earth",
+          "rank": "N",
+          "class": "damage_mage"
         },
-        "skillIds": {
-          "actives": [10],
-          "passives": []
+        "inventory": {
+          "weapon": 0,
+          "helmet": 0,
+          "armor": 0,
+          "boots": 0,
+          "gem": 0
         },
-        "attackType": "physical",
-        "element": "Earth",
-        "rank": "R",
-        "class": "damage"
+        "id": "205",
+        "name": "Floria",
+        "tokenNFT": "",
+        "_id": "61e169d2a384b90241471143",
+        "position": 1,
+        "type": "my",
+        "idprefab": "61dd5bffd6d59f7c0330637c",
+        "totalPoint": 6
       },
-      "inventory": {
-        "weapon": 0,
-        "helmet": 0,
-        "armor": 0,
-        "boots": 0,
-        "gem": 0
+      null,
+      null,
+      null,
+      {
+        "ability": {
+          "stats": {
+            "hp": 1,
+            "atk": 1,
+            "def": 1,
+            "matk": 1,
+            "mdef": 1,
+            "spd": 1,
+            "dodge": 1,
+            "crit": 1
+          },
+          "skillIds": {
+            "actives": [14],
+            "passives": []
+          },
+          "attackType": "physical",
+          "element": "Plant",
+          "rank": "N",
+          "class": "affect"
+        },
+        "inventory": {
+          "weapon": 0,
+          "helmet": 0,
+          "armor": 0,
+          "boots": 0,
+          "gem": 0
+        },
+        "id": "204",
+        "name": "Floria",
+        "tokenNFT": "",
+        "_id": "61e169d5a384b9024147114a",
+        "position": 5,
+        "type": "my",
+        "idprefab": "61dd5bffd6d59f7c03306370",
+        "totalPoint": 6
       },
-      "id": "310",
-      "name": "Racoon",
-      "tokenNFT": "",
-      "_id": "61dd5ce399fcafd7e2d7ad60",
-      "idprefab": ["61dd5bffd6d59f7c0330637f"],
-      "position": 1,
-      "type": "my",
-      "totalPoint": 14.399999999999999
+      null,
+      null,
+      null,
+      null
+    ],
+    "eMonsters": [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ability": {
+          "stats": {
+            "hp": 2,
+            "atk": 2,
+            "def": 2,
+            "matk": 2,
+            "mdef": 2,
+            "spd": 2,
+            "dodge": 2,
+            "crit": 2
+          },
+          "skillIds": {
+            "actives": [1]
+          },
+          "attackType": "physical",
+          "element": "Fire",
+          "rank": "R",
+          "class": ""
+        },
+        "inventory": {
+          "weapon": 0,
+          "helmet": 0,
+          "armor": 0,
+          "boots": 0,
+          "gem": 0
+        },
+        "id": "306",
+        "name": "Racoon",
+        "tokenNFT": "",
+        "_id": "61dd5c13e9400b8e40864d22",
+        "position": 5,
+        "type": "enemy",
+        "idprefab": "61dd5bffd6d59f7c0330634f",
+        "totalPoint": 12
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "prefab": [
+      {
+        "_id": "61dd5bffd6d59f7c0330634f",
+        "name": "[Monster] Racoon R Fire",
+        "version": "1.0",
+        "hashid": "2d20c4fcba4100e761192d51d8d5f145",
+        "url": "https://dev-admcp.etermon.com/storage/files/monsters/web/1_0/wyndora_fire_r"
+      },
+      {
+        "_id": "61dd5bffd6d59f7c03306370",
+        "name": "[Monster] Floria N Plant",
+        "version": "1.0",
+        "hashid": "4a4689c3cbc85828ea574f51e8ab0a34",
+        "url": "https://dev-admcp.etermon.com/storage/files/monsters/web/1_0/wyndora_fire_r"
+      },
+      {
+        "_id": "61dd5bffd6d59f7c0330637c",
+        "name": "[Monster] Floria N Earth",
+        "version": "1.0",
+        "hashid": "1e7c7bd95858fc86350716b477070f95",
+        "url": "https://dev-admcp.etermon.com/storage/files/monsters/web/1_0/wyndora_fire_r"
+      }
+    ],
+    "rewards": {
+      "items": [],
+      "exp": 0,
+      "gold": 0
     },
-    null,
-    {
-      "ability": {
-        "stats": {
-          "hp": 4,
-          "atk": 3,
-          "def": 1,
-          "matk": 1,
-          "mdef": 2,
-          "spd": 1,
-          "dodge": 1,
-          "crit": 1
-        },
-        "skillIds": {
-          "actives": [9],
-          "passives": []
-        },
-        "attackType": "physical",
-        "element": "Electric",
-        "rank": "N",
-        "class": "tank"
-      },
-      "inventory": {
-        "weapon": 0,
-        "helmet": 0,
-        "armor": 0,
-        "boots": 0,
-        "gem": 0
-      },
-      "id": "203",
-      "name": "Floria",
-      "tokenNFT": "",
-      "_id": "61dd5cdd6b2bc2ea351a0edf",
-      "idprefab": ["61dd5bffd6d59f7c03306364"],
-      "position": 3,
-      "type": "my",
-      "totalPoint": 12
-    },
-    null,
-    {
-      "ability": {
-        "stats": {
-          "hp": 3,
-          "atk": 1,
-          "def": 2,
-          "matk": 4,
-          "mdef": 1,
-          "spd": 1,
-          "dodge": 1,
-          "crit": 1
-        },
-        "skillIds": {
-          "actives": [4],
-          "passives": []
-        },
-        "attackType": "physical",
-        "element": "Water",
-        "rank": "N",
-        "class": "damage_mage"
-      },
-      "inventory": {
-        "weapon": 0,
-        "helmet": 0,
-        "armor": 0,
-        "boots": 0,
-        "gem": 0
-      },
-      "id": "202",
-      "name": "Floria",
-      "tokenNFT": "",
-      "_id": "61dd5ce24decc1375dc90df6",
-      "idprefab": ["61dd5bffd6d59f7c03306358"],
-      "position": 5,
-      "type": "my",
-      "totalPoint": 12
-    },
-    null,
-    null,
-    null,
-    null
-  ],
-  "eMonsters": [
-    null,
-    null,
-    null,
-    null,
-    {
-      "ability": {
-        "stats": {
-          "hp": 2,
-          "atk": 2,
-          "def": 2,
-          "matk": 2,
-          "mdef": 2,
-          "spd": 2,
-          "dodge": 2,
-          "crit": 2
-        },
-        "skillIds": {
-          "actives": [1]
-        },
-        "attackType": "physical",
-        "element": "Fire",
-        "rank": "R",
-        "class": ""
-      },
-      "inventory": {
-        "weapon": 0,
-        "helmet": 0,
-        "armor": 0,
-        "boots": 0,
-        "gem": 0
-      },
-      "id": "306",
-      "name": "Racoon",
-      "tokenNFT": "",
-      "_id": "61dd5c13e9400b8e40864d22",
-      "idprefab": ["61dd5bffd6d59f7c0330634f"],
-      "position": 5,
-      "type": "enemy",
-      "totalPoint": 12
-    },
-    null,
-    null,
-    null,
-    null
-  ],
-  "prefab": [
-    {
-      "_id": "61dd5bffd6d59f7c0330634f",
-      "version": "1.0",
-      "hashid": "2d20c4fcba4100e761192d51d8d5f145",
-      "url": "https://dev-api.etermon.com"
-    },
-    {
-      "_id": "61dd5bffd6d59f7c03306358",
-      "version": "1.0",
-      "hashid": "e09652376717c041b8eaeee63ea976d8",
-      "url": "https://dev-api.etermon.com"
-    },
-    {
-      "_id": "61dd5bffd6d59f7c03306364",
-      "version": "1.0",
-      "hashid": "06e4ccbcfa6f7d5613b9e0dd831dd874",
-      "url": "https://dev-api.etermon.com"
-    },
-    {
-      "_id": "61dd5bffd6d59f7c0330637f",
-      "version": "1.0",
-      "hashid": "f1b69c040f11c2080c0f9f64468e4722",
-      "url": "https://dev-api.etermon.com"
-    }
-  ],
-  "createdAt": "2022-01-13T06:27:57.846Z",
-  "updatedAt": "2022-01-14T05:13:48.411Z",
-  "__v": 0,
-  "result": "win"
+    "result": "",
+    "_id": "61e16ed49915d3d626464a2f",
+    "createdAt": "2022-01-14T12:38:44.550Z",
+    "updatedAt": "2022-01-14T12:38:44.550Z",
+    "__v": 0
+  }
 }
