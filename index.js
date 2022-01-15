@@ -176,6 +176,7 @@ async function makeTurn() {
     // console.log('listMonsters:', listMonsters);
 
     turnIndex = turnIndex + 1;
+    listMonsters = listMonsters.filter((v) => v.currenthp > 0);
   }
 
   // reset turn turnIndex
@@ -183,7 +184,6 @@ async function makeTurn() {
   round = round + 1;
   // const monster = listMonsters.find((v) => v.currenthp > 0);
 
-  listMonsters = listMonsters.filter((v) => v.currenthp > 0);
   monstersCheck = _.groupBy(listMonsters, 'type');
   // console.log('monstersCheck:', monstersCheck);
   eMonster_count = monstersCheck.enemy ? monstersCheck.enemy.length : 0;
