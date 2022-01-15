@@ -1,13 +1,12 @@
 // let json_monsters = require('./data/monsters.json');
 // let json_emonsters = require('./data/emonsters.json');
 // let json_skills = require('./data/skills.json');
-
-const dataJson = require('./data/jsonviewer.json');
-let myMonsters = dataJson.data.monsters;
-let enemyMonsters = dataJson.data.eMonsters;
-
 let _ = require('lodash');
 const localDb = require('./libs/db.js');
+const dataJson = require('./data/jsonviewer.json');
+let myMonsters = _.clone(dataJson.data.monsters);
+let enemyMonsters = _.clone(dataJson.data.eMonsters);
+
 let db = new localDb.Database();
 function genarateGameRound() {
   return db.makeid();
@@ -45,7 +44,6 @@ listMonsters = _.orderBy(
     debuff: [],
   };
 });
-// console.log('listMonsters:', listMonsters);
 
 async function makeTurn() {
   let listTurns = [];
@@ -60,6 +58,7 @@ async function makeTurn() {
 
     const bfaction_monsters = [...bfaction];
     const action_monsters_skills_targets = [];
+
     let monsterDefenseList = chooseEnemyMonster(
       monsterAttack.position,
       monsterAttack.type === 'enemy' ? myMonsters : enemyMonsters
@@ -67,7 +66,7 @@ async function makeTurn() {
 
     monsterDefenseList.forEach((md) => {
       let monsterDefense = listMonsters.find((m) => m._id === md._id);
-      if (monsterDefense && monsterDefense.currenthp > 0) {
+      if (monsterDefense) {
         let damageNormal = calculatingDamageNormalAttack(
           monsterAttack,
           monsterDefense
@@ -84,12 +83,10 @@ async function makeTurn() {
               ? monsterDefense.currenthp - damageNormal
               : 0,
         };
+
         action_monsters_skills_targets.push(monsterDefense);
       }
     });
-    if (action_monsters_skills_targets.length === 0) {
-      return;
-    }
 
     const monster_with_skills = {
       _id: monsterAttack._id,
@@ -103,17 +100,20 @@ async function makeTurn() {
         },
       ],
     };
-    // console.log('monster_with_skills:', monster_with_skills);
     const action_monsters = [monster_with_skills];
 
     let currentMonster = listMonsters.find((m) => m._id === monsterAttack._id);
+
+    if (!currentMonster) {
+      continue;
+    }
+
     currentMonster = {
       ...currentMonster,
       fury: [
         currentMonster.fury[0] + 25 > 100 ? 0 : currentMonster.fury[0] + 25,
       ],
     };
-    // console.log('currentMonster:', currentMonster);
 
     const afaction_monsters = bfaction_monsters.map((m) => {
       const eM = action_monsters_skills_targets.find(
@@ -145,38 +145,45 @@ async function makeTurn() {
         },
       },
     };
+
     // console.log('turn:', turn);
     // await db.create(turn.data);
 
-    let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      body: JSON.stringify({
-        title: 'new_title',
-        body: 'new_body',
-        userId: 'userid',
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    });
-    response = await response.json();
+    // let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     title: 'new_title',
+    //     body: 'new_body',
+    //     userId: 'userid',
+    //   }),
+    //   headers: {
+    //     'Content-type': 'application/json; charset=UTF-8',
+    //   },
+    // });
+    // response = await response.json();
     // console.log(round, 'response:', response);
 
     listTurns.push(turn);
 
-    listMonsters = listMonsters.map((m) => {
-      const monster = afaction_monsters.find((afm) => afm._id === m._id);
-      return monster ? { ...monster } : { ...m };
-    });
+    listMonsters = listMonsters
+      .map((m) => {
+        const monster = afaction_monsters.find((afm) => afm._id === m._id);
+        if (monster && monster.currenthp === 0) {
+          const indexM = myMonsters.findIndex((v) => v._id === monster._id);
+          if (indexM) {
+            myMonsters[indexM] = null;
+          }
+        }
+        return monster ? { ...monster } : { ...m };
+      })
+      .filter((v) => v.currenthp > 0);
 
-    console.log('bfaction_monsters:', bfaction_monsters);
-    console.log('action_monsters:', action_monsters);
-    console.log('afaction_monsters:', afaction_monsters);
-
+    // console.log('bfaction_monsters:', bfaction_monsters);
+    // console.log('action_monsters:', action_monsters);
+    // console.log('afaction_monsters:', afaction_monsters);
     // console.log('listMonsters:', listMonsters);
 
     turnIndex = turnIndex + 1;
-    listMonsters = listMonsters.filter((v) => v.currenthp > 0);
   }
 
   // reset turn turnIndex
