@@ -6,23 +6,65 @@ const localDb = require('./libs/db.js');
 const dataJson = require('./data/jsonviewer.json');
 let myMonsters = _.clone(dataJson.data.monsters);
 let enemyMonsters = _.clone(dataJson.data.eMonsters);
-
-let db = new localDb.Database();
-function genarateGameRound() {
-  return db.makeid();
-}
-
 import {
   monsterHP,
-  chooseEnemyMonster,
-  calculatingDamageNormalAttack,
+  chooseEnemyMonster as libChooseEnemyMonster,
+  calculatingDamageNormalAttack as libCalculatingDamageNormalAttack,
 } from './libs/gameLogic.js';
+
+let db = new localDb.Database();
+class MonsterClassBase {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+
+class Model extends MonsterClassBase {
+  constructor(brand, mod) {
+    super(brand);
+    this.model = mod;
+  }
+  generateGameRound() {
+    return this.present() + ', it is a ' + this.model;
+  }
+  chooseEnemyMonster(position, monsterArr_type) {
+    return libChooseEnemyMonster(position, monsterArr_type);
+  }
+  calculatingDamageNormalAttack(attack, defense) {
+    return libCalculatingDamageNormalAttack(attack, defense);
+  }
+  async findOneAndUpdate(a, b, c) {
+    // return fetch('https://jsonplaceholder.typicode.com/posts', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     title: 'new_title',
+    //     body: 'new_body',
+    //     userId: 'userid',
+    //   }),
+    //   headers: {
+    //     'Content-type': 'application/json; charset=UTF-8',
+    //   },
+    // });
+    // return response.json();
+  }
+}
+let battleHelper = new Model('my', 'enemy');
+let gameLogicHelper = new Model('my', 'enemy');
+let BattleAction = new Model('my', 'enemy');
+BattleAction;
+
 // console.log(json_emonsters[0]);
+let battleId = 123;
 let listMonsters = [];
 let round = 0;
 let monstersCheck = [];
 let monster_count = 0;
 let eMonster_count = 0;
+let gameturn = 0;
+let rounds = [];
 
 listMonsters = _.orderBy(
   _.compact([...myMonsters, ...enemyMonsters]),
@@ -51,7 +93,7 @@ async function makeTurn() {
   for (const monsterAttack of listMonsters) {
     console.log('-------', `round-${round} turn-${turnIndex}`, '-------');
     let bfaction = [...listMonsters];
-    let gameround = genarateGameRound();
+    let gameround = battleHelper.generateGameRound(battleId, round);
     let listOrder = listMonsters.map((m) => m._id);
     listOrder.unshift(monsterAttack._id);
     listOrder = _.uniq(listOrder);
@@ -59,15 +101,16 @@ async function makeTurn() {
     const bfaction_monsters = [...bfaction];
     const action_monsters_skills_targets = [];
 
-    let monsterDefenseList = chooseEnemyMonster(
+    let monsterDefenseList = battleHelper.chooseEnemyMonster(
       monsterAttack.position,
       monsterAttack.type === 'enemy' ? myMonsters : enemyMonsters
     );
+    console.log('monsterDefenseList:', monsterDefenseList);
 
     monsterDefenseList.forEach((md) => {
       let monsterDefense = listMonsters.find((m) => m._id === md._id);
       if (monsterDefense) {
-        let damageNormal = calculatingDamageNormalAttack(
+        let damageNormal = gameLogicHelper.calculatingDamageNormalAttack(
           monsterAttack,
           monsterDefense
         );
@@ -132,6 +175,9 @@ async function makeTurn() {
 
     const turn = {
       data: {
+        round,
+        battleId,
+        gameturn,
         gameround,
         listOrder,
         bfaction: {
@@ -146,22 +192,17 @@ async function makeTurn() {
       },
     };
 
-    // console.log('turn:', turn);
-    // await db.create(turn.data);
-
-    // let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     title: 'new_title',
-    //     body: 'new_body',
-    //     userId: 'userid',
-    //   }),
-    //   headers: {
-    //     'Content-type': 'application/json; charset=UTF-8',
-    //   },
-    // });
-    // response = await response.json();
-    // console.log(round, 'response:', response);
+    await BattleAction.findOneAndUpdate(
+      {
+        gameturn: gameturn,
+        round: round,
+      },
+      turn.data,
+      {
+        new: true,
+        upsert: true,
+      }
+    );
 
     listTurns.push(turn);
 
@@ -184,11 +225,15 @@ async function makeTurn() {
     // console.log('listMonsters:', listMonsters);
 
     turnIndex = turnIndex + 1;
+    gameturn++;
   }
 
   // reset turn turnIndex
   turnIndex = 0;
   round = round + 1;
+  rounds.push({
+    turns: listTurns,
+  });
   // const monster = listMonsters.find((v) => v.currenthp > 0);
 
   monstersCheck = _.groupBy(listMonsters, 'type');
