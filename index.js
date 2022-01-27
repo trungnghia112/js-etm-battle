@@ -105,9 +105,9 @@ async function makeTurn() {
       monsterAttack.position,
       monsterAttack.type === 'enemy' ? myMonsters : enemyMonsters
     );
-    
+
     if (monsterDefenseList.length <= 0) {
-        continue;
+      continue;
     }
     console.log('monsterDefenseList:', monsterDefenseList);
 
@@ -175,7 +175,7 @@ async function makeTurn() {
           }
         : m;
     });
-    // console.log('afaction_monsters:', afaction_monsters);
+    console.log('afaction_monsters:', afaction_monsters);
 
     const turn = {
       data: {
@@ -215,39 +215,39 @@ async function makeTurn() {
         const monster = afaction_monsters.find((afm) => afm._id === m._id);
         if (monster && monster.currenthp === 0) {
           if (monster.type === 'my') {
-              let indexM = -1;
-              const myMonstersKeys = Object.keys(myMonsters);
-              for (let k of myMonstersKeys) {
-                  const v = myMonsters[k];
-                  if (!v) {
-                      continue;
-                  }
-                  if (v._id === monster._id) {
-                      indexM = k;
-                      break;
-                  }
+            let indexM = -1;
+            const myMonstersKeys = Object.keys(myMonsters);
+            for (let k of myMonstersKeys) {
+              const v = myMonsters[k];
+              if (!v) {
+                continue;
               }
+              if (v._id === monster._id) {
+                indexM = k;
+                break;
+              }
+            }
 
-              if (indexM !== -1) {
-                  myMonsters[indexM] = null;
-              }
+            if (indexM !== -1) {
+              myMonsters[indexM] = null;
+            }
           } else {
-              let indexM = -1;
-              const enemyMonstersKeys = Object.keys(enemyMonsters);
-              for (let k of enemyMonstersKeys) {
-                  const v = enemyMonsters[k];
-                  if (!v) {
-                      continue;
-                  }
-                  if (v._id === monster._id) {
-                      indexM = k;
-                      break;
-                  }
+            let indexM = -1;
+            const enemyMonstersKeys = Object.keys(enemyMonsters);
+            for (let k of enemyMonstersKeys) {
+              const v = enemyMonsters[k];
+              if (!v) {
+                continue;
               }
+              if (v._id === monster._id) {
+                indexM = k;
+                break;
+              }
+            }
 
-              if (indexM) {
-                  enemyMonsters[indexM] = null;
-              }
+            if (indexM) {
+              enemyMonsters[indexM] = null;
+            }
           }
         }
         return monster ? { ...monster } : { ...m };
