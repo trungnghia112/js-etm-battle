@@ -130,7 +130,7 @@ async function makeTurn() {
           ...monsterTarget,
           hit: [damageNormal],
           fury: [
-            monsterTarget.fury[0] + 25 > 100 ? 0 : monsterTarget.fury[0] + 25,
+            monsterTarget.fury[0] + 25 > 100 ? 100 : monsterTarget.fury[0] + 25,
           ],
           currenthp:
             monsterTarget.currenthp - damageNormal > 0
