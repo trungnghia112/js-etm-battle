@@ -6,14 +6,11 @@ const localDb = require('./libs/db.js');
 const dataJson = require('./data/jsonviewer.json');
 let myMonsters = _.clone(dataJson.data.monsters);
 let enemyMonsters = _.clone(dataJson.data.eMonsters);
-
 import {
   monsterHP,
   chooseEnemyMonster as libChooseEnemyMonster,
   calculatingDamageNormalAttack as libCalculatingDamageNormalAttack,
 } from './libs/gameLogic.js';
-
-import { skillEffectMonsters as lib_skillEffectMonsters } from './libs/skill.js';
 
 let db = new localDb.Database();
 class MonsterClassBase {
@@ -33,7 +30,7 @@ class Model extends MonsterClassBase {
   generateGameRound() {
     return this.present() + ', it is a ' + this.model;
   }
-  chooseDefenseMonsters(position, monsterArr_type) {
+  chooseEnemyMonster(position, monsterArr_type) {
     return libChooseEnemyMonster(position, monsterArr_type);
   }
   calculatingDamageNormalAttack(attack, defense) {
@@ -53,15 +50,11 @@ class Model extends MonsterClassBase {
     // });
     // return response.json();
   }
-
-  skillEffectMonsters() {
-    return lib_skillEffectMonsters(attack, defense);
-  }
 }
 let battleHelper = new Model('my', 'enemy');
 let gameLogicHelper = new Model('my', 'enemy');
 let BattleAction = new Model('my', 'enemy');
-let skillHelper = new Model('my', 'enemy');
+BattleAction;
 
 // console.log(json_emonsters[0]);
 let battleId = 123;
@@ -98,11 +91,6 @@ async function makeTurn() {
   let listTurns = [];
   let turnIndex = 0;
   for (const monsterAttack of listMonsters) {
-    // kiểm tra xem monster hoặc enemyMonster còn sống hay không, nếu chết thì dừng cuộc chơi
-    if (!_.compact(myMonsters).length || !_.compact(enemyMonsters).length) {
-      continue;
-    }
-
     console.log('-------', `round-${round} turn-${turnIndex}`, '-------');
     let bfaction = [...listMonsters];
     let gameround = battleHelper.generateGameRound(battleId, round);
@@ -113,54 +101,37 @@ async function makeTurn() {
     const bfaction_monsters = [...bfaction];
     const action_monsters_skills_targets = [];
 
-    let monsterTargetList = battleHelper.chooseDefenseMonsters(
+    let monsterDefenseList = battleHelper.chooseEnemyMonster(
       monsterAttack.position,
       monsterAttack.type === 'enemy' ? myMonsters : enemyMonsters
     );
 
-    monsterTargetList.forEach((md) => {
-      let monsterTarget = listMonsters.find((m) => m._id === md._id);
-      if (monsterTarget) {
+    if (monsterDefenseList.length <= 0) {
+      continue;
+    }
+    console.log('monsterDefenseList:', monsterDefenseList);
+
+    monsterDefenseList.forEach((md) => {
+      let monsterDefense = listMonsters.find((m) => m._id === md._id);
+      if (monsterDefense) {
         let damageNormal = gameLogicHelper.calculatingDamageNormalAttack(
           monsterAttack,
-          monsterTarget
+          monsterDefense
         );
         damageNormal = Math.round(damageNormal); // round damage
-        monsterTarget = {
-          ...monsterTarget,
+        monsterDefense = {
+          ...monsterDefense,
           hit: [damageNormal],
           fury: [
-            monsterTarget.fury[0] + 25 > 100 ? 0 : monsterTarget.fury[0] + 25,
+            monsterDefense.fury[0] + 25 > 100 ? 0 : monsterDefense.fury[0] + 25,
           ],
           currenthp:
-            monsterTarget.currenthp - damageNormal > 0
-              ? monsterTarget.currenthp - damageNormal
+            monsterDefense.currenthp - damageNormal > 0
+              ? monsterDefense.currenthp - damageNormal
               : 0,
         };
 
-        // kiểm tra nếu con monsterTarget nó thuộc list monster nào
-        // nếu currenthp = 0 thì chuyển index của nó về bằng null
-        // tại vì hàm chooseDefenseMonsters chọn theo vị trí
-        if (monsterTarget.currenthp <= 0) {
-          if (monsterTarget.type === 'my') {
-            let mtIndex = myMonsters.findIndex(
-              (m) => !_.isNull(m) && m._id === monsterTarget._id
-            );
-            myMonsters[mtIndex] = null;
-          } else {
-            let mtIndex = enemyMonsters.findIndex(
-              (m) => !_.isNull(m) && m._id === monsterTarget._id
-            );
-            enemyMonsters[mtIndex] = null;
-          }
-        }
-
-        console.log(
-          `con [${monsterAttack.type}] [${monsterAttack.id}-${monsterAttack.ability.element}-${monsterAttack.ability.attackType}-${monsterAttack.ability.rank}] với fury [${monsterAttack.fury}], hp [${monsterAttack.currenthp}] sẽ đánh con `,
-          `[${monsterTarget.type}] [${monsterTarget.id}-${monsterTarget.ability.element}-${monsterTarget.ability.attackType}-${monsterTarget.ability.rank}] với fury [${monsterTarget.fury}], hp [${monsterTarget.currenthp}]`
-        );
-
-        action_monsters_skills_targets.push(monsterTarget);
+        action_monsters_skills_targets.push(monsterDefense);
       }
     });
 
@@ -181,7 +152,6 @@ async function makeTurn() {
     let currentMonster = listMonsters.find((m) => m._id === monsterAttack._id);
 
     if (!currentMonster) {
-      turnIndex++;
       continue;
     }
 
@@ -192,30 +162,20 @@ async function makeTurn() {
       ],
     };
 
-    let afaction_monsters = bfaction_monsters
-      .map((m) => {
-        const eM = action_monsters_skills_targets.find(
-          (afm) => afm._id === m._id
-        );
-        const result =
-          currentMonster._id === m._id
-            ? {
-                ...currentMonster,
-              }
-            : eM
-            ? {
-                ...eM,
-              }
-            : m;
-        return {
-          ...result,
-          hit: [], // restore hit after hitted
-          hprecovery: [], // restore hit after hitted
-        };
-      })
-      .filter((v) => v.currenthp > 0);
-
-    console.log('afaction_monsters:', afaction_monsters);
+    let afaction_monsters = bfaction_monsters.map((m) => {
+      const eM = action_monsters_skills_targets.find(
+        (afm) => afm._id === m._id
+      );
+      return currentMonster._id === m._id
+        ? currentMonster
+        : eM
+        ? {
+            ...eM,
+            hit: [], // restore hit after hitted
+          }
+        : m;
+    });
+    // console.log('afaction_monsters:', afaction_monsters);
 
     const turn = {
       data: {
@@ -250,12 +210,54 @@ async function makeTurn() {
 
     listTurns.push(turn);
 
-    listMonsters = afaction_monsters;
+    listMonsters = listMonsters
+      .map((m) => {
+        const monster = afaction_monsters.find((afm) => afm._id === m._id);
+        if (monster && monster.currenthp === 0) {
+          if (monster.type === 'my') {
+            let indexM = -1;
+            const myMonstersKeys = Object.keys(myMonsters);
+            for (let k of myMonstersKeys) {
+              const v = myMonsters[k];
+              if (!v) {
+                continue;
+              }
+              if (v._id === monster._id) {
+                indexM = k;
+                break;
+              }
+            }
+
+            if (indexM !== -1) {
+              myMonsters[indexM] = null;
+            }
+          } else {
+            let indexM = -1;
+            const enemyMonstersKeys = Object.keys(enemyMonsters);
+            for (let k of enemyMonstersKeys) {
+              const v = enemyMonsters[k];
+              if (!v) {
+                continue;
+              }
+              if (v._id === monster._id) {
+                indexM = k;
+                break;
+              }
+            }
+
+            if (indexM) {
+              enemyMonsters[indexM] = null;
+            }
+          }
+        }
+        return monster ? { ...monster } : { ...m };
+      })
+      .filter((v) => v.currenthp > 0);
 
     // console.log('bfaction_monsters:', bfaction_monsters);
     // console.log('action_monsters:', action_monsters);
     // console.log('afaction_monsters:', afaction_monsters);
-    // console.log('listMonsters:', listMonsters);
+    console.log('listMonsters:', listMonsters);
 
     turnIndex = turnIndex + 1;
     gameturn++;
@@ -285,11 +287,6 @@ async function makeTurn() {
 }
 async function start() {
   await makeTurn();
-  let result = 'lose';
-  // console.log(monster_count, eMonster_count);
-  if (eMonster_count <= 0) {
-    result = 'win';
-  }
-  console.log(`you ${result}`);
+  console.log(monster_count > eMonster_count ? 'you win' : 'you lose');
 }
 start();
