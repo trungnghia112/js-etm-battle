@@ -107,6 +107,8 @@ async function makeTurn() {
     let bfaction = [...listMonsters];
     let gameround = battleHelper.generateGameRound(battleId, round);
     let listOrder = listMonsters.map((m) => m._id);
+    listOrder.splice(0, turnIndex);
+    console.log('listOrder:', listOrder);
 
     const bfaction_monsters = [...bfaction];
     const action_monsters_skills_targets = [];
@@ -248,8 +250,7 @@ async function makeTurn() {
 
     listTurns.push(turn);
 
-    listMonsters = afaction_monsters.filter((m) => m._id !== monsterAttack._id);
-    listMonsters.push(monsterAttack);
+    listMonsters = afaction_monsters;
 
     // console.log('bfaction_monsters:', bfaction_monsters);
     // console.log('action_monsters:', action_monsters);
